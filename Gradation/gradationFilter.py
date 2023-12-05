@@ -25,15 +25,9 @@ def apply_gradation_filter(image):
     blended_image = blended_image.convert('RGB')
     return blended_image
 
-# 이미지 파일 경로
 original_image_path = "./Gradation/test.jpg"
-
-# 이미지 열기
 original_image = Image.open(original_image_path)
-
-# 그라데이션 필터 적용
 filtered_image = apply_gradation_filter(original_image)
 
-# 필터 적용된 이미지 저장
 # filtered_image.show()
 filtered_image.save("./Gradation/filtered_image.jpg")
