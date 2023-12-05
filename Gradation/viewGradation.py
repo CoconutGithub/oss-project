@@ -27,7 +27,7 @@ def visual_gradation(width, height, save_path):
 # 이미지 크기와 저장 경로 지정
 image_width = 400
 image_height = 200
-output_image_path = "outputImage.jpg"
+output_image_path = "./Gradation/outputImage.jpg"
 
 # 색상 그라데이션 시각화 수행
 visual_gradation(image_width, image_height, output_image_path)
