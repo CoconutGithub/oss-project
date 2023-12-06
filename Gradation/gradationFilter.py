@@ -34,7 +34,11 @@ def visual_gradation(width, height,start,end):
 #ff8647
 #96d35f
 
+start_color_input = input("Enter start color (hex): ")
+start_color = (int(start_color_input[0:2], 16), int(start_color_input[2:4], 16), int(start_color_input[4:6], 16))
 
+end_color_input = input("Enter end color (hex): ")
+end_color = (int(end_color_input[0:2], 16), int(end_color_input[2:4], 16), int(end_color_input[4:6], 16))
 
 original_image_path = "oss-project/Gradation/test.jpg"
 print(original_image_path)
