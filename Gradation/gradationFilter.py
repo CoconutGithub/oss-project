@@ -1,13 +1,13 @@
 import os
 from PIL import Image, ImageDraw, ImageFilter
 
-def apply_gradation_filter(image,start,end):
+def apply_gradation_filter(image,start,end,input_alpha=0.5):
     # 그라데이션 필터 적용
     width, height = image.size
     grad_image=visual_gradation(width, height,start,end)
     
     # 원본 이미지와 그라데이션 이미지를 합침
-    blended_image = Image.blend(image.convert('RGB'), grad_image,alpha=0.5)
+    blended_image = Image.blend(image.convert('RGB'), grad_image,input_alpha)
     blended_image = blended_image.convert('RGB')
     return blended_image
 
@@ -34,6 +34,7 @@ def visual_gradation(width, height,start,end):
 #ff8647
 #96d35f
 
+#hex색상값 rgd로 변환
 start_color_input = input("Enter start color (hex): ")
 start_color = (int(start_color_input[0:2], 16), int(start_color_input[2:4], 16), int(start_color_input[4:6], 16))
 
