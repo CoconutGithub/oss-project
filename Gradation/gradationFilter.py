@@ -41,12 +41,12 @@ start_color = (int(start_color_input[0:2], 16), int(start_color_input[2:4], 16),
 end_color_input = input("Enter end color (hex): ")
 end_color = (int(end_color_input[0:2], 16), int(end_color_input[2:4], 16), int(end_color_input[4:6], 16))
 
-original_image_path = "oss-project/Gradation/test.jpg"
+original_image_path = "Gradation/drawImg.jpg"
 print(original_image_path)
 original_image = Image.open(original_image_path)
 filtered_image = apply_gradation_filter(original_image, start_color,end_color)
 
-filtered_image.save("oss-project/Gradation/filtered_image.jpg")
+filtered_image.save("Gradation/filtered_image.jpg")
 
 
 
