@@ -1,7 +1,7 @@
 from PIL import Image
 import os
 
-def apply_mosaic_filter(image, block_size=10):
+def apply_mosaic_filter(image, block_size=20):
     """
     주어진 이미지에 모자이크 기능을 적용
     
@@ -46,26 +46,38 @@ def main():
     # 입력 이미지 경로
     input_image_path = os.path.join(script_dir, "test.jpg")
 
-    # 모자이크 필터를 적용할 블록 크기
-    ## block_size가 클수록 흐림
-    block_size = 20
-    
-    # 입력 이미지 열기
-    ## RGB 모드로 변환
+    # 입력 이미지 열기 및 RGB 모드로 변환
     try:
         input_image = Image.open(input_image_path).convert("RGB")  
     except FileNotFoundError:
         print(f"Error: Input image not found at {input_image_path}")
         return
+    
+    # 사용자에게 블록 크기를 커스터마이징할 것인지 물어보기
+    customize_block_size = input("블록 크기를 커스터마이징하시겠습니까? (Y/N): ").upper()
 
-    # 모자이크 필터 적용
-    mosaic_image = apply_mosaic_filter(input_image, block_size=block_size)
+    if customize_block_size == 'Y':
+        try:
+            # 사용자에게 원하는 블록 크기 입력 받기
+            block_size = int(input("원하는 블록 크기를 입력하세요: "))
+        except ValueError:
+            print("오류: 잘못된 블록 크기 입력. 기본 블록 크기를 사용합니다.")
+            block_size = 20
+    # 기본 블록 크기
+    elif customize_block_size == 'N':
+        block_size = 20 
+    else :
+        print("(Y/N)으로 입력해야합니다. 기본 블록 크기를 사용합니다.")
+        block_size = 20
+
+    # 선택된 블록 크기로 모자이크 필터 적용
+    mosaic_image = apply_mosaic_filter(input_image, block_size)
 
     # 필터링된 이미지 보기
     mosaic_image.show()
 
     # 저장할 이미지의 파일 경로
-    output_image_path = os.path.join(script_dir, "outputImage2.jpg")
+    output_image_path = os.path.join(script_dir, "outputImage1.jpg")
 
     # 필터링된 이미지 저장
     mosaic_image.save(output_image_path)
