@@ -77,7 +77,7 @@ def main():
     mosaic_image.show()
 
     # 저장할 이미지의 파일 경로
-    output_image_path = os.path.join(script_dir, "outputImage1.jpg")
+    output_image_path = os.path.join(script_dir, "outputImage.jpg")
 
     # 필터링된 이미지 저장
     mosaic_image.save(output_image_path)
