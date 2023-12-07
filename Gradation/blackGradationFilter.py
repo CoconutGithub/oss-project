@@ -33,21 +33,27 @@ def visual_gradation(width, height, start, end):
 def hex_to_rgb(hex_color):
     return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
 
-# 시작 색상과 끝 색상을 지정
-start_color_input = input("Enter start color (hex): ")
-start_color = hex_to_rgb(start_color_input)
 
-end_color_input = input("Enter end color (hex): ")
-end_color = hex_to_rgb(end_color_input)
+try:
+    # 시작 색상과 끝 색상을 지정
+    start_color_input = input("Enter start color (hex): ")
+    start_color = hex_to_rgb(start_color_input)
 
-# 이미지 경로 (본인의 이미지 경로를 추가해주세요)
-image_path = "Gradation/heart.png"
+    end_color_input = input("Enter end color (hex): ")
+    end_color = hex_to_rgb(end_color_input)
 
-# 이미지 열기
-original_image = Image.open(image_path)
+    # 이미지 경로 (본인의 이미지 경로를 추가해주세요)
+    image_path = "Gradation/heart.png"
 
-# 색칠 함수 적용
-filtered_image = apply_gradation_filter(original_image, start_color, end_color)
+    # 이미지 열기
+    original_image = Image.open(image_path)
 
-# 결과 이미지 보여주기
-filtered_image.show()
+    # 색칠 함수 적용
+    filtered_image = apply_gradation_filter(original_image, start_color, end_color)
+
+    # 결과 이미지 보여주기
+    filtered_image.show()
+except IOError:
+    print("Error:png 파일이 아닙니다.")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
