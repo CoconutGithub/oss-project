@@ -43,7 +43,7 @@ try:
     end_color = hex_to_rgb(end_color_input)
 
     # 이미지 경로 (본인의 이미지 경로를 추가해주세요)
-    image_path = "Gradation/KakaoTalk_Photo_2023-12-09-19-19-51.png"
+    image_path = "Gradation/60D2151A-A12A-4F89-9D79-D7FD5DBEA4C4.png"
 
     # 이미지 열기
     original_image = Image.open(image_path)
